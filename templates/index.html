@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/style_home.css') }}">
+</head>
+<body>
+    {% extends "navbar.html" %}
+
+    {% block title %}Inicio{% endblock %}
+
+    {% block content %}
+    <section>
+        <!-- Video de fondo -->
+        <video id="background-video" src="{{ url_for('static', filename='images/Videro_Fondo.mp4') }}" autoplay muted loop></video>
+
+        <div class="content">
+            <div class="textBox">
+                <h2>La IA llegó para transformar la investigación de mercados!<br> <span class="N_GROUP">DP Team</span></h2>
+                <p>Hoy es tu oportunidad de evolucionar con nuestra innovadora suite de utilidades de IA para Ipsos. 
+                    Prueba hoy mismo nuestra demo y comprueba el poder de la inteligencia artificial para optimizar el procesamiento y análisis de datos.
+                </p>
+                <a href="" class="btt_conocer">Conoce más</a>
+            </div>
+            <div class="imgBox">
+                <img src="{{ url_for('static', filename='images/Astronautas/A.BLANCO.png') }}" class="Astronauta" alt="Astronauta">
+            </div>
+        </div>
+        <ul class="thumb">
+            <li>
+                <img src="{{ url_for('static', filename='images/Astronautas/JS.png') }}"
+                     data-image="{{ url_for('static', filename='images/Astronautas/A.MORADO.png') }}"
+                     data-color="#a134eb"
+                     onclick="changeCircleColor(this.getAttribute('data-color')); imgSlider(this.getAttribute('data-image'))"
+                     alt="Astronauta JS">
+            </li>
+            <li>
+                <img src="{{ url_for('static', filename='images/Astronautas/AC.png') }}"
+                     data-image="{{ url_for('static', filename='images/Astronautas/A.BLANCO.png') }}"
+                     data-color="#5dcbf0"
+                     onclick="changeCircleColor(this.getAttribute('data-color')); imgSlider(this.getAttribute('data-image'))"
+                     alt="Astronauta AC">
+            </li>
+            <li>
+                <img src="{{ url_for('static', filename='images/Astronautas/LC.png') }}"
+                     data-image="{{ url_for('static', filename='images/Astronautas/A.ROSA.png') }}"
+                     data-color="#f071e3"
+                     onclick="changeCircleColor(this.getAttribute('data-color')); imgSlider(this.getAttribute('data-image'))"
+                     alt="Astronauta LC">
+            </li>
+            <li>
+                <img src="{{ url_for('static', filename='images/Astronautas/AV.png') }}"
+                     data-image="{{ url_for('static', filename='images/Astronautas/A.VERDE.png') }}"
+                     data-color="#2df766"
+                     onclick="changeCircleColor(this.getAttribute('data-color')); imgSlider(this.getAttribute('data-image'))"
+                     alt="Astronauta AV">
+            </li>
+        </ul>
+        
+        <ul class="ico_redes">
+            <li><a href="#"><img src="{{ url_for('static', filename='images/Iconos_Redes/facebook.png') }}" alt="Facebook"></a></li>
+            <li><a href="#"><img src="{{ url_for('static', filename='images/Iconos_Redes/instagram.png') }}" alt="Instagram"></a></li>
+            <li><a href="#"><img src="{{ url_for('static', filename='images/Iconos_Redes/twitter.png') }}" alt="Twitter"></a></li>
+        </ul>
+    </section>
+
+    <script type="text/JavaScript">
+        function imgSlider(anything) {
+            document.querySelector('.Astronauta').src = anything;
+        }
+
+        function changeCircleColor(color) {
+            const N_GROUP = document.querySelector('.N_GROUP');
+            N_GROUP.style.color = color;
+            const btt_conocer = document.querySelector('.btt_conocer');
+            btt_conocer.style.background = color;
+        }
+    </script>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,89 @@
+
+    <main>
+        <h2>Administrar Usuarios</h2>
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario[0] }}</td>
+                    <td>{{ usuario[1] }}</td>
+                    <td>{{ usuario[2] }}</td>
+                    <td>{{ usuario[3] }}</td>
+                    <td>
+                        <button class="edit-btn" 
+                                data-id="{{ usuario[0] }}" 
+                                data-nombre="{{ usuario[1] }}" 
+                                data-apellido="{{ usuario[2] }}" 
+                                data-correo="{{ usuario[3] }}" 
+                                data-celular="{{ usuario[4] }}">
+                            Editar
+                        </button>
+                        <form action="{{ url_for('eliminar_usuario', usuario_id=usuario[0]) }}" method="post" style="display:inline;">
+                            <button type="submit">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Modal de Edición -->
+        <div id="editUserModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Editar Usuario</h2>
+                <form id="editUserForm" action="{{ url_for('actualizar_usuario', usuario_id=0) }}" method="POST">
+                    <input type="hidden" id="usuarioId" name="usuario_id">
+                    <input type="text" id="usuarioNombre" name="nombre" placeholder="Nombre" required>
+                    <input type="text" id="usuarioApellido" name="apellido" placeholder="Apellido" required>
+                    <input type="email" id="usuarioCorreo" name="correo" placeholder="Correo" required>
+                    <input type="text" id="usuarioCelular" name="celular" placeholder="Celular" required>
+                    <button type="submit">Actualizar</button>
+                </form>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                // Abre el modal y llena los campos
+                $('.edit-btn').on('click', function() {
+                    const id = $(this).data('id');
+                    const nombre = $(this).data('nombre');
+                    const apellido = $(this).data('apellido');
+                    const correo = $(this).data('correo');
+                    const celular = $(this).data('celular');
+
+                    $('#usuarioId').val(id);
+                    $('#usuarioNombre').val(nombre);
+                    $('#usuarioApellido').val(apellido);
+                    $('#usuarioCorreo').val(correo);
+                    $('#usuarioCelular').val(celular);
+
+                    $('#editUserModal').show();
+                });
+
+                // Cierra el modal
+                $('.close').on('click', function() {
+                    $('#editUserModal').hide();
+                });
+
+                // Cierra el modal al hacer clic fuera de él
+                $(window).on('click', function(event) {
+                    if ($(event.target).is('#editUserModal')) {
+                        $('#editUserModal').hide();
+                    }
+                });
+            });
+        </script>
+
+    </main>

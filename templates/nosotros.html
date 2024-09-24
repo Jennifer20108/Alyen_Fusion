@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros</title>
+    <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/style_nosotros.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+</head>
+<body>
+    {% extends "navbar.html" %}
+
+    {% block title %}Sobre Nosotros{% endblock %}
+
+    {% block content %}
+    <!-- Main Content -->
+    <main>
+        <video id="background-video" autoplay muted loop>
+            <source src="{{ url_for('static', filename='images/fondo_video.mp4') }}" type="video/mp4">
+        </video>
+        <!-- Carrusel de Imágenes -->
+        <section id="carrusel">
+            <div class="carousel">
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/Carrusel_Nosotros/FAMILY.jpeg') }}" alt="Imagen 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/Carrusel_Nosotros/FAMILY2.jpeg') }}" alt="Imagen 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/Carrusel_Nosotros/FAMILY3.jpeg') }}" alt="Imagen 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/Carrusel_Nosotros/FAMILY4.jpeg') }}" alt="Imagen 4">
+                </div>
+            </div>
+        </section>
+        <div class="marginX">
+            <!-- Quiénes Somos -->
+            <section id="quienes-somos">
+                <div class="container">
+                    <h2>Quiénes Somos</h2>
+                    <p>En nuestra empresa, combinamos experiencia y pasión para brindar soluciones tecnológicas de vanguardia. Con un equipo de expertos dedicados, estamos comprometidos con la innovación y la excelencia en todo lo que hacemos.</p>
+                </div>
+            </section>
+
+            <!-- Nuestra Misión y Visión -->
+            <section id="mision-vision">
+                <section id="mision-vision">
+                    <div class="container">
+                        <div class="mision-vision-content">
+                            <div class="mision">
+                                <h2>Nuestra Misión</h2>
+                                <p>Nuestra misión es liderar el mercado ofreciendo soluciones tecnológicas innovadoras que optimicen los procesos de nuestros clientes y promuevan un impacto positivo en la sociedad.</p>
+                                <img src="{{ url_for('static', filename='images/mision.jpg') }}" alt="Misión">
+                            </div>
+                            <div class="vision">
+                                <h2>Nuestra Visión</h2>
+                                <p>Queremos ser líderes globales en soluciones tecnológicas, reconocidos por nuestra capacidad de innovación, calidad y compromiso con el desarrollo sostenible. Aspiramos a crear un futuro donde la tecnología impulse el progreso y mejore la vida de las personas en todo el mundo.</p>
+                                <img src="{{ url_for('static', filename='images/vision.jpg') }}" alt="Visión">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+            
+            <!-- Nuestros Valores -->
+            <section id="valores">
+                <div class="container">
+                    <h2>Nuestros Valores</h2>
+                    <div class="values-content">
+                        <div class="value-item">
+                            <span>💡</span>
+                            <h3>Innovación</h3>
+                            <p>Buscamos constantemente nuevas soluciones y tecnologías para mejorar nuestros servicios.</p>
+                        </div>
+                        <div class="value-item">
+                            <span>🤝</span>
+                            <h3>Compromiso</h3>
+                            <p>Nos dedicamos a cumplir nuestras promesas y ofrecer resultados excepcionales.</p>
+                        </div>
+                        <div class="value-item">
+                            <span>🔍</span>
+                            <h3>Integridad</h3>
+                            <p>Actuamos con honestidad y transparencia en todas nuestras acciones.</p>
+                        </div>
+                        <div class="value-item">
+                            <span>🌟</span>
+                            <h3>Colaboración</h3>
+                            <p>Fomentamos un ambiente de trabajo colaborativo para lograr los mejores resultados.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nuestros Integrantes -->
+            <section id="integrantes">
+                <div class="container">
+                    <h2>Nuestros Integrantes</h2>
+                    <BR>
+                    <div class="team">
+                        <div class="team-member">
+                            <div class="team-member-inner">
+                                <img src="{{ url_for('static', filename='images/Integrantes/JS.png') }}" alt="Jennifer Salas">
+                                <div class="member-info">
+                                    <h3>Jennifer Salas</h3>
+                                    <p>Asistente de Data Procesing.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-member-inner">
+                                <img src="{{ url_for('static', filename='images/Integrantes/AC.jpg') }}" alt="Alexander Contreras">
+                                <div class="member-info">
+                                    <h3>Alexander Contreras</h3>
+                                    <p>Asistente de Data Procesing.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-member-inner">
+                                <img src="{{ url_for('static', filename='images/Integrantes/LC.jpg') }}" alt="Leyla Campos">
+                                <div class="member-info">
+                                    <h3>Leyla Campos</h3>
+                                    <p>Asistente de Data Procesing.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-member-inner">
+                                <img src="{{ url_for('static', filename='images/Integrantes/AV.jpg') }}" alt="Anthony Vivian">
+                                <div class="member-info">
+                                    <h3>Anthony Vivian</h3>
+                                    <p>Traine</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+            </section>
+        </div> 
+    </main>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="{{ url_for('static', filename='js/nosotros.js') }}" defer></script>
+
+    {% endblock %}
+</body>
+</html>

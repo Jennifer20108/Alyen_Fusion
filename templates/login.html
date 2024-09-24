@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Login</title>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" type="text/css"/>
+    <!-- Optional: Additional CSS for specific styling -->
+    <!-- <link href="{{ url_for('static', filename='css/formularios.css') }}" rel="stylesheet" type="text/css"/> -->
+    <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/style_navbar.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
+</head>
+<body>
+    {% extends "navbar.html" %}
+
+    {% block title %}Inicio{% endblock %}
+
+    {% block content %}
+    <div class="container">
+        <input type="checkbox" id="flip">
+        <div class="cover">
+            <div class="front">
+                <img src="{{ url_for('static', filename='images/cerrar-gente-feliz-posando-juntos_23-2149008997.avif') }}" alt="">
+            </div>
+            <div class="back">
+                <img class="backImg" src="{{ url_for('static', filename='images/backImg.jpg') }}" alt="">
+            </div>
+        </div>
+        <div class="forms">
+            <div class="form-content">
+                <!-- Login Form -->
+                <div class="login-form">
+                    <div><img src="{{ url_for('static', filename='images/ALYEN.png') }}" style="width: 400px; height: auto;"></div>
+                    <br>
+                    <div class="title">Iniciar Sesión</div>
+                    <form action="control">
+                        <input type="hidden" name="opc" value="0">
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <input class="form-control" type="text" id="id_correo" name="correo" placeholder="Ingrese el correo" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="id_contrasena" name="contrasena" placeholder="Ingrese la contraseña" required>
+                                <i class="fas fa-eye icon-right" id="Eye"></i>
+                            </div>
+                            <div class="button input-box" style="color: #F98544">
+                                <input type="submit" name="accion" value="Iniciar sesión">
+                            </div>
+                            <div class="text sign-up-text">¿No tienes una cuenta? <label for="flip">Regístrate ahora</label></div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Signup Form -->
+                <div class="signup-form">
+                    <div class="title">Registrarse <img src="{{ url_for('static', filename='images/ALYEN.png') }}" style="width: 300px; height: auto;" ></div>
+                    <form action="control" id="id_form" enctype="multipart/form-data"  method="POST">
+                        <input type="hidden" name="opc" value="7">
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                <i class="fas fa-user"></i>
+                                <input class="form-control" type="text" id="id_nombre" name="nombre" placeholder="Ingrese el nombre" pattern="[A-Za-z/Ññ]+" required title="Solo ingrese letras">
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-user"></i>
+                                <input class="form-control" type="text" id="id_apellido" name="apellido" placeholder="Ingrese el apellido" pattern="[A-Za-z/Ññ]+" required title="Solo ingrese letras">
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <input class="form-control" type="email" id="id_correo" name="correo" placeholder="Ingrese el correo" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input class="form-control" type="password" id="id_contrasena2" name="contrasena" placeholder="Ingrese la contraseña" required>
+                                <i class="fas fa-eye icon-right" id="Eye2"></i>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-user"></i>
+                                <input class="form-control" type="text" id="id_celular" name="celular" placeholder="Ingrese el celular" minlength="9" maxlength="9" required pattern="[0-9]+" title="Solo ingrese números">
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-user"></i>
+                                <input class="form-control" type="text" id="id_direccion" name="direccion" placeholder="Ingrese la dirección" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-user-tag"></i>
+                                <label for="tipos_user" class="tipo-usuario-label">Área: </label>
+                                <select id="tipos_user" name="tipos_user" required>
+                                    <option value="Operaciones" {% if usuario and usuario[8] == 'Operaciones' %}selected{% endif %}>Operaciones</option>
+                                    <option value="Investigación" {% if usuario and usuario[8] == 'Investigación' %}selected{% endif %}>Investigación</option>
+                                </select>
+                            </div>
+                            
+                            <!--NUEVO PARA FOTO-->
+                            <div class="input-box">
+                                <i class="fas fa-upload"></i>
+                                <input class="form-control" type="file" id="id_imagen" name="imagen" accept="image/*" required>
+                            </div>
+                            <div class="button input-box">
+                                <input type="submit" value="Registrar">
+                            </div>
+                            <div class="text sign-up-text">¿Ya tienes una cuenta? <label for="flip">Inicia sesión ahora</label></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mensajes para JavaScript -->
+        <script>
+            // Función para convertir entidades HTML a caracteres normales
+            function htmlDecode(value) {
+                var textarea = document.createElement('textarea');
+                textarea.innerHTML = value;
+                return textarea.value;
+            }
+        
+            // Obtener los mensajes de la plantilla
+            var error = "{{ error|default('')|safe }}";
+            var success = "{{ success|default('')|safe }}";
+            var passwordError = "{{ password_error|default('')|safe }}"; // Mensaje para contraseña incorrecta
+        
+            // Decodificar las entidades HTML
+            error = htmlDecode(error);
+            success = htmlDecode(success);
+            passwordError = htmlDecode(passwordError); // Decodificar el mensaje de contraseña
+        
+            // Mostrar mensajes usando SweetAlert2
+            window.onload = function() {
+                if (passwordError) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: passwordError // Mostrar mensaje de contraseña incorrecta
+                    });
+                } else if (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: error
+                    });
+                } 
+        
+                if (success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Éxito',
+                        text: success
+                    });
+                }
+            };
+        </script>
+        {% if password_error %}
+        <script>
+            var passwordError = "{{ password_error|safe }}";
+        </script>
+        {% endif %}
+        {% if error %}
+        <script>
+            var error = "{{ error|safe }}";
+        </script>
+        {% endif %}
+        {% if success %}
+        <script>
+            var success = "{{ success|safe }}";
+        </script>
+        {% endif %}
+        <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+    </div>
+    {% endblock %}
+</body>
+</html>

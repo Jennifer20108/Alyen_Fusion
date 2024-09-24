@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+/* index.css */
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta el video para cubrir el área sin distorsionarse */
+    z-index: -1; /* Asegúrate de que el video esté detrás del contenido */
+}
+
+section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 2% 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background: white; */
+    right: auto;
+    /* background: rgba(255, 255, 255, 0.5);  */
+}
+
+
+
+.content {
+    margin-top: 50px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content .textBox {
+    max-width: 600px;
+    margin-left: 40px;
+}
+
+.content .textBox h2 {
+    color: whitesmoke;
+    font-size: 2em;
+    line-height: 1.4em;
+    font-weight: 500;
+}
+
+.content .textBox h2 span {
+    color: #5dcbf0;
+    font-size: 1.2em;
+    font-weight: 900;
+}
+
+.content .textBox p {
+    color: whitesmoke;
+}
+
+.content .textBox a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #5dcbf0;
+    color: #fff;
+    border-radius: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.content .imgBox {
+    max-width: 600px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 70px;
+}
+
+.content .imgBox img {
+    max-width: 340px;
+}
+
+.thumb {
+    position: absolute;
+    left: 50%;
+    bottom: 40px;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.thumb li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.thumb li:hover {
+    transform: translateY(-10px); /* Ajusta este valor según lo que prefieras */
+}
+
+.thumb li img {
+    max-width: 60px;
+    transition: transform 0.3s ease; /* Suaviza la transición del movimiento */
+
+}
+
+/* Estilos base para el botón "Conoce más" */
+.btt_conocer {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #5dcbf0; /* Color de fondo inicial */
+    color: black; /* Color del texto inicial */
+    border-radius: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra inicial */
+}
+
+/* Efecto hover para el botón "Conoce más" */
+.btt_conocer:hover {
+    background: #007bff; /* Cambia el color de fondo al pasar el mouse */
+    color: black; /* Cambia el color del texto al pasar el mouse */
+    transform: scale(1.05); /* Efecto de escala para hacer el botón un poco más grande */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta la sombra al pasar el mouse */
+}
+
+.ico_redes {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.ico_redes li {
+    list-style: none;
+}
+
+.ico_redes li a {
+    display: inline-block;
+    margin: 5px 0;
+    transform: scale(0.6);
+    filter: invert(1);
+}
+
+.ico_redes li a img {
+    transition: filter 0.3s ease; /* Suaviza la transición del cambio de color */
+}
+
+/* Efecto hover para los íconos de redes sociales */
+.ico_redes li a:hover img {
+    filter: brightness(0) invert(1); /* Cambia el color de la imagen al pasar el mouse */
+}
+

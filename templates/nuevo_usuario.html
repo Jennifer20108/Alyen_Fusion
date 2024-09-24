@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/usuarios.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <title>Crear Usuario</title>
+</head>
+<body class="body_edit">
+    <div class="container edit-user">
+        <div class="container">
+            <h1>Crear Usuario</h1>
+            <form  id="newUserForm" action="{{ url_for('nuevo_usuario') }}" method="POST" enctype="multipart/form-data">
+                <div class="input-box">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+                </div>
+
+                <div class="input-box">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
+                </div>
+
+                <div class="input-box">
+                    <label for="correo">Correo</label>
+                    <input type="email" id="correo" name="correo" placeholder="Correo" required>
+                </div>
+
+                <div class="input-box">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
+                </div>
+
+                <div class="input-box">
+                    <label for="celular">Celular</label>
+                    <input type="text" id="celular" name="celular" placeholder="Celular" required>
+                </div>
+
+                <div class="input-box">
+                    <label for="direccion">Dirección</label>
+                    <input type="text" id="direccion" name="direccion" placeholder="Dirección" required>
+                </div>
+
+                <div class="input-box">
+                    <label for="imagen_perfil">Imagen de Perfil</label>
+                    <input type="file" id="imagen_perfil" name="imagen_perfil">
+                </div>
+
+                <div class="input-box">
+                    <label for="tipos_user">Tipo de Usuario</label>
+                    <select id="tipos_user" name="tipos_user" required>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Operaciones">Operaciones</option>
+                        <option value="Investigación">Investigación</option>
+                    </select>
+                </div>
+
+                <div class="input-box">
+                    <label for="estado_user">Estado</label>
+                    <select id="estado_user" name="estado_user" required>
+                        <option value="Aprobado">Aprobado</option>
+                        <option value="Pendiente">Pendiente</option>
+                    </select>
+                </div>
+
+                <button type="submit">Crear</button>
+            </form>
+
+            <a href="{{ url_for('leer_usuarios') }}">Volver a la lista</a>
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>  
+
+    <script>
+        document.getElementById('newUserForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch(this.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                swal(data.success ? "¡Usuario Creado!" : "Error", data.message, data.success ? "success" : "error");
+            })
+            .finally(() => {
+                window.close();
+            });
+        });
+    </script>
+    
+    
+</body>
+</html>

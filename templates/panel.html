@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_Panel.css') }}">
+    <script src="{{ url_for('static', filename='js/dash.js') }}" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_user.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modal.css') }}">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/style_navbar.css') }}">
+    
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">
+            <img src="{{ url_for('static', filename='images/ALYEN_LOGO.png') }}" alt="Logo ALYEN">
+            <!-- <h1>ALYEN</h1> -->
+        </a>
+        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {% block title %}Inicio{% endblock %}
+
+    {% block content %}
+    <!-- Sección de Información del Usuario -->
+    <div class="user-panel">
+        <div class="user-info">
+            <img src="{{ url_for('static', filename='images/perfil/' + imagen_perfil) }}" alt="User Avatar" class="user-avatar">
+            <p class="user-name">{{ nombre }} {{ apellido }}</p>
+            <p class="user-email">{{ correo }}</p>
+        </div>
+    
+        <div class="user-details">
+            <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <p>Cargo: Desarrollador</p> <!-- Cambia esto si también es dinámico -->
+            </div>
+            <div class="detail-item">
+                <i class="fas fa-sitemap"></i>
+                <p>Área: {{tipos_user}}</p> <!-- Cambia esto si también es dinámico -->
+            </div>
+            <div class="detail-item">
+                <i class="fas fa-phone-alt"></i>
+                <p>Teléfono: {{ celular }}</p>
+            </div>
+            <div class="detail-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Dirección: {{ direccion }}</p>
+            </div>
+        </div>
+    </div>
+        
+   <div id="change">
+        <main>
+            <section class="product-gallery">
+                <!-- NETOS Section -->
+            
+                <div class="product-card">
+                    <img src="{{ url_for('static', filename='images/Cards/NETOS.png') }}" alt="Card 2">
+                    <h2>NETOS</h2>
+                    <p>Forma la lógica de tus netos de manera sencilla.</p>
+                    <!-- Formulario para seleccionar y subir el archivo -->
+                    <form id="uploadForm" action="/run-python-script" method="post" enctype="multipart/form-data">
+                        <input type="file" id="fileInput" name="file" accept=".xls, .xlsx" multiple style="display:none;">
+                        <button type="button" id="NETOS">Genera Ahora</button>
+                        <button type="submit" id="submitButton" style="display:none;">Subir Archivo</button>
+                    </form>
+                    <div id="message"></div>
+                </div>
+                <!-- EASY-CODE Section -->
+                <!-- EASY-CODE Section -->
+                <div class="product-card">
+                    <img src="{{ url_for('static', filename='images/Cards/Imagen1.png') }}" alt="Card 1">
+                    <h2>EASY-CODING</h2>
+                    <p>Transforma tus bases de codificación en formato Perú.</p>
+                    <!-- Formulario para seleccionar y subir el archivo para EASY-CODE -->
+                    <form id="easycodeForm" action="/process-easycode-resumen" method="post" enctype="multipart/form-data">
+                        <input type="file" id="easycodeFileInput" name="file" accept=".xls, .xlsx" style="display:none;">
+                        <!-- Botón para abrir el selector de archivos -->
+                        <button type="button" id="EasyCode">Genera Ahora</button>
+                        <!-- Botón de envío del formulario (oculto ya que se activa mediante JavaScript) -->
+                        <button type="submit" id="easycodeSubmitButton" style="display:none;">Subir Archivo</button>
+                    </form>
+                    <!-- Div para mostrar mensajes o resultados del procesamiento -->
+                    <div id="easycodeMessage"></div>
+                </div>
+                
+                <!-- Otros productos -->
+                <div class="product-card" style="display: none;">
+                    <img src="{{ url_for('static', filename='images/Cards/bat.jfif') }}" alt="Card 3">
+                    <h2>RUN BAT</h2>
+                    <p>Construye la serie de scripts a correr de manera rápida.</p>
+                    <!-- Formulario para seleccionar y subir el archivo para EASY-CODE -->
+                    <form id="runBatForm" action="/run-bat-form" method="post" enctype="multipart/form-data">
+                        <input type="file" id="runBatFileInput" name="file" accept=".mrs, .dms" multiple style="display:none;">
+                        <!-- Botón para abrir el selector de archivos -->
+                        <button type="button" id="runBat">Genera Ahora</button>
+                        <!-- Botón de envío del formulario (oculto ya que se activa mediante JavaScript) -->
+                        <button type="submit" id="runBatSubmitButton" style="display:none;">Subir Archivo</button>
+                    </form>
+                    <!-- Div para mostrar mensajes o resultados del procesamiento -->
+                    <div id="runBatMessage"></div>
+                </div>
+        
+                <div class="product-card">
+                    <img src="{{ url_for('static', filename='images/Cards/ArtifactLogo.png') }}" alt="Card 4">
+                    <h2>FORMATEO DE ARTIFAC</h2>
+                    <p>Genera tus excels de tablas en unos minutos.</p>
+                    <form id="formateoArtifacForm" action="/formateo-artifac" method="post" enctype="multipart/form-data">
+                        <input type="file" id="formateoArtifacFileInput" name="file" accept=".mtd" multiple style="display:none;">
+                        <!-- Botón para abrir el selector de archivos -->
+                        <button type="button" id="formateoArtifac">Genera Ahora</button>
+                        <!-- Botón de envío del formulario (oculto ya que se activa mediante JavaScript) -->
+                        <button type="submit" id="formateoArtifacSubmitButton" style="display:none;">Subir Archivo</button>
+                    </form>
+                    <!-- Div para mostrar mensajes o resultados del procesamiento -->
+                    <div id="formateoArtifacMessage"></div>
+                </div>
+        
+                <div class="product-card">
+                    <img src="{{ url_for('static', filename='images/Cards/sav.png') }}" alt="Card 5">
+                    <h2>VALIDACIÓN DE BDD CON LCD</h2>
+                    <p>Verifica que tus códigos de la BDD están en tu LCD.</p>
+                    <form id="valBddLdcForm" action="/val-bdd-ldc" method="post" enctype="multipart/form-data">
+                        <input type="file" id="valBddLdcFileInput" name="file" accept=".xlsx, .xls" style="display:none;">
+                        <!-- Botón para abrir el selector de archivos -->
+                        <button type="button" id="valBddLdc">Genera Ahora</button>
+                        <!-- Botón de envío del formulario (oculto ya que se activa mediante JavaScript) -->
+                        <button type="submit" id="valBddLdcSubmitButton" style="display:none;">Subir Archivo</button>
+                    </form>
+                    <!-- Div para mostrar mensajes o resultados del procesamiento -->
+                    <div id="valBddLdcMessage"></div>
+                </div>
+        
+                <div class="product-card">
+                    <img src="{{ url_for('static', filename='images/Cards/val_excel.png') }}" alt="Card 6">
+                    <h2>MAPEO DE BASE SPSS</h2>
+                    <p>Ingresa tu base spss y obtén la estructura en formato excel.</p>
+                    <form id="mapeoSpssForm" action="/mapeo-spss" method="post" enctype="multipart/form-data">
+                        <input type="file" id="mapeoSpssFileInput" name="file" accept=".sav" style="display:none;">
+                        <!-- Botón para abrir el selector de archivos -->
+                        <button type="button" id="mapeoSpss">Genera Ahora</button>
+                        <!-- Botón de envío del formulario (oculto ya que se activa mediante JavaScript) -->
+                        <button type="submit" id="mapeoSpssSubmitButton" style="display:none;">Subir Archivo</button>
+                    </form>
+                    <!-- Div para mostrar mensajes o resultados del procesamiento -->
+                    <div id="mapeoSpssMessage"></div>
+                </div>
+                
+                
+                {% if tipos_user == 'Administrador' %}
+                <div class="product-card" id="adminUsersCard">
+                    <img src="{{ url_for('static', filename='images/Cards/usuarios.png') }}" alt="Gestión de Usuarios">
+                    <h2>GESTIÓN DE USUARIOS</h2>
+                    <p>Administra los usuarios de la base de datos.</p>
+                    <a href="{{ url_for('panel_admin') }}" style="text-decoration: none;">
+                        <button>Administrar</button>
+                    </a>
+                </div>
+                
+                {% endif %}
+
+                
+        
+            
+            </section>
+        </main>
+
+        
+        
+   </div>     
+    {% endblock %}
+    
+
+
+</body>
+</html>

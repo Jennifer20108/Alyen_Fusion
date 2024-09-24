@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/usuarios.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Gestión de Usuarios</title>
+</head>
+<body>
+    <diV class="nuevo_user">
+        <h1>Lista de Usuarios</h1>
+        
+        <input type="text" id="searchInput" placeholder="Buscar usuario..." oninput="filterTable()">
+        
+        <a href="{{ url_for('nuevo_usuario') }}" class="btn btn-primary">Agregar Usuario</a>
+
+        <table id="usersTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Imagen de Perfil</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Celular</th>
+                    <th>Dirección</th>
+                    <th>Tipo de Usuario</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                    <tr>
+                        <td>{{ usuario[0] }}</td>
+                        <td>
+                            {% if usuario[7] %}
+                                <img src="{{ url_for('static', filename='images/perfil/' + usuario[7]) }}" alt="Imagen de {{ usuario[1] }}" width="50" height="50">
+                            {% else %}
+                                <img src="{{ url_for('static', filename='images/perfil/default.png') }}" alt="Imagen por defecto" width="50" height="50">
+                            {% endif %}
+                        </td>
+                        <td>{{ usuario[1] }}</td>
+                        <td>{{ usuario[2] }}</td>
+                        <td>{{ usuario[3] }}</td>
+                        <td>{{ usuario[5] }}</td>
+                        <td>{{ usuario[6] }}</td>
+                        <td>{{ usuario[8] }}</td>
+                        <td>{{ usuario[9] }}</td>
+                        <td>
+                            <a href="{{ url_for('editar_usuario', id=usuario[0]) }}" class="btn btn-edit">
+                                <i class="fas fa-edit"></i> Editar
+                            </a>
+                            <form action="{{ url_for('borrar_usuario', id=usuario[0]) }}" method="POST" style="display:inline;">
+                                <button type="submit" class="btn btn-delete">
+                                    <i class="fas fa-trash-alt"></i> Eliminar
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <script>
+            function filterTable() {
+                const input = document.getElementById('searchInput');
+                const filter = input.value.toLowerCase();
+                const table = document.getElementById('usersTable');
+                const rows = table.getElementsByTagName('tr');
+
+                for (let i = 1; i < rows.length; i++) {
+                    const cells = rows[i].getElementsByTagName('td');
+                    let found = false;
+
+                    for (let j = 0; j < cells.length; j++) {
+                        if (cells[j]) {
+                            const txtValue = cells[j].textContent || cells[j].innerText;
+                            if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    rows[i].style.display = found ? '' : 'none';
+                }
+            }
+        </script>
+    
+    </diV>
+</body>
+</html>

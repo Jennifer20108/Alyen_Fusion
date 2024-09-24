@@ -1,0 +1,292 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita el desbordamiento horizontal */
+}
+
+/* Video de fondo */
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta el video para cubrir el contenedor */
+    z-index: -1; /* Asegura que el video esté detrás del contenido */
+    opacity: 0.5; /* Ajusta la opacidad si es necesario */
+    overflow: hidden; /* Evita desbordamientos */
+}
+
+/* Estilo del contenedor principal */
+main {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.marginX{
+    margin-left: 20PX;
+    margin-right: 20PX;
+}
+/* Carrusel de Imágenes */
+#carrusel {
+    margin-top: 20PX;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 4rem; /* Espacio entre el carrusel y la siguiente sección */
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%; /* Ajuste automático del ancho */
+}
+
+.carousel-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto; /* Mantiene la proporción de la imagen */
+    max-height: 100%; /* Asegura que la imagen no exceda el contenedor */
+    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor sin distorsionar */
+    border-radius: 8px;
+}
+
+/* Estilos para los puntos del carrusel */
+.slick-dots {
+    bottom: 10px; /* Ajusta la posición vertical según tu diseño */
+}
+
+.slick-dots li button:before {
+    font-size: 12px; /* Tamaño de los puntos */
+    color: #333; /* Color de los puntos */
+}
+
+.slick-dots .slick-active button:before {
+    color: #5dcbf0; /* Color de los puntos activos */
+}
+
+/* Sección Quiénes Somos */
+#quienes-somos {
+    margin-bottom: 2rem; /* Reducido el margen inferior */
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+#quienes-somos h1 {
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Sección Misión y Visión */
+#mision-vision {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center; /* Centra las secciones */
+    margin-bottom: 4rem;
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+.mision, .vision {
+    flex: 1;
+    min-width: 300px; /* Ajusta según el diseño */
+    max-width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    display: flex; /* Para el diseño de imagen y texto en columnas */
+    flex-direction: column;
+    align-items: flex-start; /* Alinea el texto a la izquierda */
+    gap: 1rem; /* Espacio entre texto e imagen */
+    width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+    margin-bottom: 20px;
+}
+
+.mision:hover, .vision:hover {
+    transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
+}
+
+.mision h2, .vision h2 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.5rem; /* Tamaño de fuente más grande */
+}
+
+.mision p, .vision p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    width: 50%;
+}
+
+/* Imagen en la sección Misión y Visión */
+.mision img, .vision img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+    opacity: 0.5;
+    transition: opacity 0.5s ease;
+}
+
+.mision:hover img, .vision:hover img {
+    opacity: 1;
+}
+
+/* Estilo adicional para la imagen para que no tape el texto */
+.mision-content,
+.vision-content {
+    position: relative;
+    z-index: 1; 
+    /* Asegura que el texto esté por encima de la imagen */
+}
+
+/* Sección Valores */
+#valores {
+    margin-bottom: 2rem; /* Reducido el margen inferior */
+}
+
+.values-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.value-item {
+    flex: 1;
+    min-width: 200px;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.value-item:hover {
+    background: #e0f7fa;
+    transform: translateY(-5px);
+}
+
+.value-item span {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* Sección Integrantes */
+#integrantes {
+    margin-bottom: 4rem;
+}
+
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.team-member {
+    position: relative;
+    width: 200px; /* Ajusta según el diseño */
+    height: 200px; /* Ajusta según el diseño */
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: scale(1.05);
+}
+
+.team-member-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.team-member img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.member-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+}
+
+.team-member:hover .member-info {
+    opacity: 1;
+}
+
+/* Efectos de revelación */
+.section-content,
+.mision-content,
+.vision-content,
+.valores-content,
+.team {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section-content.reveal,
+.mision-content.reveal,
+.vision-content.reveal,
+.valores-content.reveal,
+.team.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}

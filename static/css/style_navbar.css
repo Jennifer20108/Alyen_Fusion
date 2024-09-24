@@ -1,0 +1,100 @@
+/* navbar.css */
+
+/* Estilo para el Navbar */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+header .logo img {
+    max-width: 280px;
+    height: auto;
+    margin-right: 40px;
+}
+
+header .logo h1 {
+    font-size: 24px;
+    color: #3948a4;
+    margin: 0; /* Asegura que no haya margen adicional */
+}
+
+header ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-right: 20px;
+}
+
+header ul li {
+    margin: 0 20px;
+}
+
+header ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    position: relative;
+    padding: 10px 0;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 2px solid transparent; /* Añadido para evitar el doble borde */
+}
+
+header ul li a:hover {
+    color: #007bff;
+    border-bottom: 2px solid #007bff; /* Solo una línea */
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: auto;
+    color: #333;
+}
+
+/* Responsividad para Navbar */
+@media (max-width: 730px) {
+    header nav {
+        display: none;
+    }
+
+    header nav.active {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 10px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    header ul {
+        flex-direction: column;
+    }
+
+    header ul li {
+        margin: 10px 0;
+    }
+}

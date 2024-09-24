@@ -1,0 +1,306 @@
+/* Google Font Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  padding: 20px;
+}
+
+.container {
+  position: relative;
+  width: 120%; /* Mantener el ancho ampliado */
+  max-width: none;
+  background: #fff;
+  padding: 20px 15px; /* Reducido padding */
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2); /* Reducida sombra */
+  perspective: 2700px;
+  transform: translateX(-10%);
+  margin-top: 80px; /* Reducido margen superior */
+}
+
+.container .cover {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 50%;
+  z-index: 98;
+  transition: all 1s ease;
+  transform-origin: left;
+  transform-style: preserve-3d;
+}
+
+.container #flip:checked ~ .cover {
+  transform: rotateY(-180deg);
+}
+
+.container .cover .front,
+.container .cover .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.cover .back {
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+
+.container .cover::before,
+.container .cover::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0.4; /* Reducido opacidad */
+}
+
+.container .cover::after {
+  opacity: 0.2;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+
+.container .cover img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 10;
+}
+
+.container .cover .text {
+  position: absolute;
+  z-index: 130;
+  height: 75%; /* Reducido altura del texto */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cover .text .text-1,
+.cover .text .text-2 {
+  font-size: 20px; /* Reducido tamaño de fuente */
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+}
+
+.cover .text .text-2 {
+  font-size: 12px; /* Reducido tamaño de fuente */
+  font-weight: 500;
+}
+
+.container .forms {
+  height: 65%; /* Reducido altura de los formularios */
+  width: 100%;
+  background: #fff;
+}
+
+.container .form-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-content .login-form,
+.form-content .signup-form {
+  width: calc(50% - 15px); /* Reducido espacio entre formularios */
+}
+
+.forms .form-content .title {
+  position: relative;
+  font-size: 20px; /* Reducido tamaño de fuente */
+  font-weight: 500;
+  color: #333;
+}
+
+.forms .form-content .title:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px; /* Reducida altura de la línea inferior */
+  width: 15px; /* Reducido ancho de la línea inferior */
+  background: #08C9F4;
+}
+
+.forms .signup-form .title:before {
+  width: 12px; /* Ajustar ancho de la línea inferior en el formulario de registro */
+}
+
+.forms .form-content .input-boxes {
+  margin-top: 15px; /* Reducido margen superior */
+}
+
+.forms .form-content .input-box {
+  display: flex;
+  align-items: center;
+  height: 40px; /* Reducida altura del campo */
+  width: 100%;
+  margin: 8px 0; /* Reducido margen vertical */
+  position: relative;
+}
+
+.form-content .input-box i {
+  position: absolute;
+  color: #08C9F4;
+  font-size: 14px; /* Reducido tamaño del ícono */
+  margin-right: 12px; /* Espacio entre el ícono y el texto */
+  z-index: 1; /* Asegura que el ícono esté encima del campo de entrada */
+}
+
+.form-content .input-box input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding-left: 40px; /* Espacio suficiente para el ícono */
+  font-size: 14px; /* Reducido tamaño de fuente */
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0,0,0,0.2); /* Reducido grosor del borde */
+  transition: all 0.3s ease;
+}
+
+.form-content .input-box input:focus,
+.form-content .input-box input:valid {
+  border-color: #08C9F4;
+}
+
+.forms .form-content .text {
+  font-size: 12px; /* Reducido tamaño de fuente */
+  font-weight: 500;
+  color: #333;
+}
+
+.forms .form-content .text a {
+  text-decoration: none;
+}
+
+.forms .form-content .text a:hover {
+  text-decoration: underline;
+}
+
+.forms .form-content .button {
+  color: #fff;
+  margin-top: 30px; /* Reducido margen superior */
+}
+
+.forms .form-content .button input {
+  color: #fff;
+  background: #08C9F4;
+  border-radius: 4px; /* Reducido radio del borde */
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.forms .form-content .button input:hover {
+  background: #080808;
+}
+
+.forms .form-content label {
+  color: #08C9F4;
+  cursor: pointer;
+}
+
+.forms .form-content label:hover {
+  text-decoration: underline;
+}
+
+.forms .form-content .login-text,
+.forms .form-content .sign-up-text {
+  text-align: center;
+  margin-top: 15px; /* Reducido margen superior */
+}
+
+.container #flip {
+  display: none;
+}
+
+/* Espaciado general para íconos en los campos de entrada */
+.input-box i {
+  margin-right: 8px; /* Espacio entre el ícono y el texto del input */
+  color: #08C9F4;
+  font-size: 14px; /* Tamaño del ícono */
+  position: absolute; /* Posición del ícono dentro del input box */
+}
+
+/* Ajusta la posición del ícono dentro del input-box */
+.input-box {
+  position: relative;
+}
+
+.form-content .input-box input {
+  padding-left: 30px; /* Ajusta el espacio del texto del input desde el borde izquierdo */
+}
+
+/* Alineación específica para íconos que deben estar a la derecha */
+.input-box .icon-right {
+  right: 15px; /* Espacio desde el borde derecho del input box */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el ícono */
+}
+
+
+
+
+@media (max-width: 730px) {
+  .container .cover {
+    display: none;
+  }
+
+  .form-content .login-form,
+  .form-content .signup-form {
+    width: 100%;
+  }
+
+  .form-content .signup-form {
+    display: none;
+  }
+
+  .container #flip:checked ~ .forms .signup-form {
+    display: block;
+  }
+
+  .container #flip:checked ~ .forms .login-form {
+    display: none;
+  }
+}
+
+.signup-form .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.signup-form .title img {
+  max-width: 240px; /* Ajustado tamaño máximo de la imagen */
+  height: auto; /* Permite que la altura se ajuste automáticamente */
+}
+
+.tipo-usuario-label {
+  margin-right: 30px; /* Ajusta el valor según lo necesites */
+  margin-left: 30px;  /* Ajusta el valor según lo necesites */
+  text-decoration: none; /* Elimina el subrayado */
+  cursor: default; /* Cambia el cursor a uno normal */
+}
+
+/* Asegúrate de que no haya estilos de hover que afecten a la etiqueta */
+.tipo-usuario-label:hover {
+  text-decoration: none; /* Elimina el subrayado en hover */
+}

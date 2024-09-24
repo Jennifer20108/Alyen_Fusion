@@ -1,0 +1,208 @@
+/* Google Font Link */
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+/* Estilos Globales */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    /* Añadir espacio para el nuevo panel */
+    margin-left: 300px; /* Ancho del panel de usuario + algún margen adicional */
+}
+
+/* Barra lateral del usuario */
+.user-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 320px; /* Ancho del panel */
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-y: auto;
+    border-right: 2px solid #3948a4; /* Borde decorativo */
+}
+
+.user-info {
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 0px; /* Espacio entre avatar e información adicional */
+}
+
+.user-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #3948a4; /* Borde decorativo alrededor del avatar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 0px;
+}
+
+.user-name {
+    font-weight: 700;
+    font-size: 20px;
+    color: #333;
+    margin: 0;
+}
+
+.user-email {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+}
+
+/* Información adicional con iconos */
+.user-details {
+    padding-top: 20px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 8px;
+    background: #f0f0f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+}
+
+.detail-item:hover {
+    background: #e0e0e0; /* Cambio de color al pasar el ratón */
+}
+
+.detail-item i {
+    font-size: 18px; /* Tamaño del icono */
+    color: #3948a4; /* Color del icono */
+    margin-right: 15px;
+}
+
+.detail-item p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+
+
+/* Estilo para el contenido principal */
+main {
+    margin-top: 80px; /* Espacio para el navbar si es necesario */
+    padding: 20px 40px;
+}
+
+/* Estilo para la galería de productos */
+.product-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas en pantallas grandes */
+    gap: 30px; /* Espacio entre tarjetas */
+}
+
+/* Estilo para cada tarjeta de producto */
+.product-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px; /* Altura fija para uniformidad */
+    object-fit: cover; /* Ajuste para cubrir el contenedor */
+    border-radius: 8px;
+}
+
+.product-card h2 {
+    margin-top: 15px;
+    color: #333;
+    font-size: 18px;
+}
+
+.product-card p {
+    color: #666;
+    margin: 10px 0;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.product-card button {
+    background-color: #3948a4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.product-card button:hover {
+    background-color: black;
+    transform: scale(1.05);
+}
+
+/* Estilo para el pie de página */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Media Queries para Diseño Responsive */
+@media (max-width: 1024px) {
+    .product-gallery {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .product-gallery {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card img {
+        max-height: 150px; /* Ajustar altura máxima para móviles */
+    }
+
+    .product-card h2 {
+        font-size: 16px; /* Reducir tamaño de fuente */
+    }
+
+    .product-card p {
+        font-size: 12px; /* Reducir tamaño de fuente */
+    }
+
+    .product-card button {
+        padding: 8px 16px; /* Ajustar padding para móviles */
+        font-size: 12px; /* Reducir tamaño de fuente */
+    }
+}

@@ -1,0 +1,69 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.table th, .table td {
+    padding: 10px; /* Achica el tamaño de las letras */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px; /* Tamaño de letra más pequeño */
+}
+
+.table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.table tr:hover {
+    background-color: #f1f1f1;
+}
+
+td .user-avatar {
+    width: 40px; /* Tamaño de la imagen */
+    height: 40px; /* Tamaño de la imagen */
+    border-radius: 50%; /* Hace la imagen redonda */
+}
+
+.btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px; /* Tamaño de letra más pequeño para los botones */
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Margen inferior entre botones */
+    width: 100%;
+}
+
+.btn-update {
+    background-color: #28a745; /* Verde para actualizar */
+    color: white;
+    margin-right: 5px;
+}
+
+.btn-delete {
+    background-color: #dc3545; /* Rojo para eliminar */
+    color: white;
+}
+
+.btn i {
+    margin-right: 5px; /* Espaciado entre ícono y texto */
+}
+
+.btn-update:hover {
+    background-color: #218838; /* Verde más oscuro */
+}
+
+.btn-delete:hover {
+    background-color: #c82333; /* Rojo más oscuro */
+}
+
+/* Hover color celeste suave */
+.btn:hover {
+    background-color: #85c1e9; /* Color celeste suave para el hover */
+}

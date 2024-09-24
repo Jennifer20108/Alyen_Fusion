@@ -1,0 +1,255 @@
+/* Google Font Link */
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+/* Estilos Globales */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Barra lateral del usuario */
+.user-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 320px; /* Ancho del panel */
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-y: auto;
+    border-right: 2px solid #3948a4; /* Borde decorativo */
+}
+
+.user-info {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.user-panel .user-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #3948a4; /* Borde decorativo alrededor del avatar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.user-name {
+    font-weight: 700;
+    font-size: 20px;
+    color: #333;
+    margin: 0;
+}
+
+.user-email {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+}
+
+/* Información adicional con iconos */
+.user-details {
+    padding-top: 20px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 8px;
+    background: #f0f0f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+}
+
+.detail-item:hover {
+    background: #e0e0e0; /* Cambio de color al pasar el ratón */
+}
+
+.detail-item i {
+    font-size: 18px;
+    color: #3948a4;
+    margin-right: 15px;
+}
+
+.detail-item p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Estilo para el contenido principal */
+main {
+    margin-left: 320px; /* Espacio para el panel lateral */
+    margin-top: 80px; /* Espacio superior para el navbar si es necesario */
+    padding: 20px;
+    background-color: #fff; /* Color de fondo blanco para el contenido */
+    border-radius: 8px; /* Bordes redondeados */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+}
+
+/* Estilo para la tabla */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 13px;
+}
+
+.table th, .table td {
+    padding: 10px; /* Tamaño de letra más pequeño */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.user-avatar {
+    width: 40px; /* Tamaño de la imagen */
+    height: 40px; /* Tamaño de la imagen */
+    border-radius: 50%; /* Hace la imagen redonda */
+}
+
+/* Estilo para los botones */
+.btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px; /* Tamaño de letra */
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Margen inferior entre botones */
+}
+
+.btn-update {
+    background-color: #28a745; /* Verde para actualizar */
+    color: white;
+    margin-bottom: 20px;
+}
+
+.btn-delete {
+    background-color: #dc3545; /* Rojo para eliminar */
+    color: white;
+}
+
+.btn i {
+    margin-right: 5px; /* Espaciado entre ícono y texto */
+}
+
+.btn-update:hover {
+    background-color: #218838; /* Verde más oscuro */
+}
+
+.btn-delete:hover {
+    background-color: #c82333; /* Rojo más oscuro */
+}
+
+/* Hover color celeste suave */
+.btn:hover {
+    background-color: #85c1e9; /* Color celeste suave para el hover */
+}
+
+/* Media Queries para Diseño Responsive */
+@media (max-width: 1024px) {
+    main {
+        margin-left: 0; /* Sin margen izquierdo en pantallas pequeñas */
+        padding: 10px;
+    }
+
+    .user-panel {
+        width: 100%; /* Ancho completo en móviles */
+        height: auto; /* Altura automática */
+        position: relative; /* Cambiar posición */
+        box-shadow: none; /* Quitar sombra */
+    }
+}
+
+@media (max-width: 768px) {
+    .table th, .table td {
+        font-size: 12px; /* Tamaño de letra más pequeño en pantallas pequeñas */
+    }
+
+    .user-avatar {
+        width: 30px; /* Tamaño más pequeño para imágenes en pantallas pequeñas */
+        height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .user-avatar {
+        width: 25px; /* Ajustar aún más en móviles */
+        height: 25px;
+    }
+
+    .btn {
+        padding: 6px 10px; /* Ajustar padding para móviles */
+        font-size: 12px; /* Reducir tamaño de fuente */
+    }
+}
+/* Estilo para el input de búsqueda */
+#searchInput {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 20px; /* Espacio debajo del input */
+    border: 1px solid #ddd; /* Borde suave */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    color: #333; /* Color del texto */
+    transition: border-color 0.3s; /* Transición suave para el borde */
+}
+
+/* Efecto en el foco */
+#searchInput:focus {
+    border-color: #3948a4; /* Color del borde cuando se enfoca */
+    outline: none; /* Sin borde de enfoque predeterminado */
+    box-shadow: 0 0 5px rgba(57, 72, 164, 0.5); /* Sombra al enfocar */
+}
+
+
+/* Estilo para el botón "Agregar Usuario" */
+.btn-primary {
+    background-color: #3948a4; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: center; /* Centrar el texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Para que se comporte como un botón */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+}
+
+/* Efecto al pasar el ratón */
+.btn-primary:hover {
+    background-color: #303f7f; /* Color más oscuro al pasar el ratón */
+    transform: scale(1.05); /* Efecto de aumento */
+}
+.btn-edit{
+    margin-bottom: 20px;
+}
